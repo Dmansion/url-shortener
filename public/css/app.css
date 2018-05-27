@@ -1,0 +1,40 @@
+
+.error-msg{
+	color: #ffe382;
+	font-style: italic;
+	font-weight: bold;
+	font-size:1.4em;
+}	
+.result-url{
+	color: #b5fcef;
+	font-weight: bold;
+	font-size:1.4em;
+}	
+.result-url:hover{
+	color: #d3ffee;
+
+}
+body{
+	font-family: Arial;
+	background:#378475;
+	color:#fff;
+
+}
+.wrapper{
+	width:780px;
+	
+	max-width: 70%;
+	margin : 0 auto;
+	text-align: center;
+	padding-top: 5em;
+}
+input[type='text']{
+	width:100%;
+	border:none;
+	padding:1em 0.5em;
+	border-radius:2px;
+}
+::-webkit-input-placeholder { text-align:center; }
+::-moz-placeholder { text-align:center; } /* firefox 19+ */
+:-ms-input-placeholder { text-align:center; } /* ie */
+input:-moz-placeholder { text-align:center; }
