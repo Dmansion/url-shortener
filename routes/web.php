@@ -1,5 +1,6 @@
 <?php
-Route::get('/', 'UrlsController@create');
+//Route::get('/', 'UrlsController@create');
+Route::view('/', 'welcome');
 
 Route::post('/', 'UrlsController@store');
 
