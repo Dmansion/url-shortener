@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 
 class UrlsController extends Controller
 {
-    //
-
 	public function create()
 	{
 		return view('welcome');
@@ -18,11 +16,7 @@ class UrlsController extends Controller
 	{
 		$this->validate($request,['url' => 'required|url']);	
 		$record = $this->getRecordForUrl($request->url);
-		if($record){
-			return view('result')->withShortened($record->shortened);
-		}
-	//gestion erreur
-		return view('error');
+		return view('result')->withShortened($record->shortened);
 	}
 
 	public function show($shortened) 
@@ -30,18 +24,11 @@ class UrlsController extends Controller
 		$url =Url::whereShortened($shortened)->firstOrFail();
 		return redirect($url->url);
 	}
-
 	private function getRecordForUrl($url)
 	{
-		$record =Url::where('url',$url)->first();
-		if(! $record){
-			$record = Url::create([
-				'url'=>$url,
-				'shortened'=>Url::getUniqueShortUrl()
-			]);
-		}
-
-		return 	$record;	
-
+		return $record =Url::firstOrCreate(
+			['url'=>$url], 
+			['shortened'=>Url::getUniqueShortUrl()]
+		);
 	}
 }
